@@ -1,0 +1,74 @@
+{% extends 'katalog/base.html' %}
+
+{% block title %}{{ produk.nama }} - SoleStore{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1>Detail Produk</h1>
+    <p>Informasi lengkap produk</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="{% url 'homepage' %}">Beranda</a> /
+    <a href="{% url 'daftar_produk' %}">Produk</a> /
+    <span>{{ produk.nama }}</span>
+  </div>
+
+  <div class="detail-wrapper">
+    <!-- Gambar -->
+    <div>
+      <div class="detail-img">{{ produk.emoji }}</div>
+    </div>
+
+    <!-- Info -->
+    <div>
+      <div class="detail-brand">{{ produk.merek }}</div>
+      <h1 class="detail-name">{{ produk.nama }}</h1>
+
+      {% if produk.badge %}
+      <span class="card-badge" style="position:static; margin-bottom: 0.8rem; display:inline-block;">{{ produk.badge }}</span>
+      {% endif %}
+
+      <div class="detail-price">Rp {{ produk.harga|floatformat:0 }}</div>
+      <p class="detail-desc">{{ produk.deskripsi }}</p>
+
+      <span class="stok-badge">✓ Stok tersedia: {{ produk.stok }} pasang</span>
+
+      <!-- Spesifikasi -->
+      <div class="detail-specs">
+        <div class="spec-row">
+          <span class="spec-label">Kategori</span>
+          <span class="spec-val">{{ produk.kategori }}</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Ukuran</span>
+          <span class="spec-val">{{ produk.ukuran }}</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Warna</span>
+          <span class="spec-val">{{ produk.warna }}</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Merek</span>
+          <span class="spec-val">{{ produk.merek }}</span>
+        </div>
+      </div>
+
+      <!-- Fitur -->
+      <p style="font-weight: 600; margin-bottom: 0.6rem;">Fitur Unggulan:</p>
+      <ul class="fitur-list">
+        {% for f in produk.fitur %}
+        <li>{{ f }}</li>
+        {% endfor %}
+      </ul>
+
+      <a href="{% url 'daftar_produk' %}" class="btn btn-primary">← Kembali ke Katalog</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

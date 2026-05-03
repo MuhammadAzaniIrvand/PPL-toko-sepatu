@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}SoleStore - Toko Sepatu Olahraga{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'katalog/css/style.css' %}">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="{% url 'homepage' %}" class="nav-logo">👟 <span>Sole</span>Store</a>
+    <ul class="nav-links">
+      <li><a href="{% url 'homepage' %}" {% if request.resolver_match.url_name == 'homepage' %}class="active"{% endif %}>Beranda</a></li>
+      <li><a href="{% url 'daftar_produk' %}" {% if request.resolver_match.url_name == 'daftar_produk' or request.resolver_match.url_name == 'detail_produk' %}class="active"{% endif %}>Produk</a></li>
+      <li><a href="{% url 'kontak' %}" {% if request.resolver_match.url_name == 'kontak' %}class="active"{% endif %}>Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+<footer>
+  <p>&copy; 2026 <strong>SoleStore</strong> — Toko Sepatu Olahraga Terpercaya · Banda Aceh</p>
+</footer>
+
+</body>
+</html>

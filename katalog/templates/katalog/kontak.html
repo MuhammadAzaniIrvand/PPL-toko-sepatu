@@ -1,0 +1,97 @@
+{% extends 'katalog/base.html' %}
+
+{% block title %}Kontak - SoleStore{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1>Hubungi Kami</h1>
+    <p>Kami siap membantu pertanyaan Anda</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="{% url 'homepage' %}">Beranda</a> / <span>Kontak</span>
+  </div>
+
+  <div class="kontak-grid">
+    <!-- Info Kontak -->
+    <div class="kontak-card">
+      <h3>Informasi Toko</h3>
+
+      <div class="kontak-item">
+        <div class="kontak-icon">📍</div>
+        <div class="kontak-text">
+          <strong>Alamat</strong>
+          <span>Jl. teuku nyak arif<br>Provinsi Aceh</span>
+        </div>
+      </div>
+
+      <div class="kontak-item">
+        <div class="kontak-icon">📞</div>
+        <div class="kontak-text">
+          <strong>Telepon</strong>
+          <span>+62 651 123-4567</span>
+        </div>
+      </div>
+
+      <div class="kontak-item">
+        <div class="kontak-icon">✉️</div>
+        <div class="kontak-text">
+          <strong>Email</strong>
+          <span>info@solestore.id</span>
+        </div>
+      </div>
+
+      <div class="kontak-item">
+        <div class="kontak-icon">💬</div>
+        <div class="kontak-text">
+          <strong>WhatsApp</strong>
+          <span>+62 812-3456-7890</span>
+        </div>
+      </div>
+
+      <div class="kontak-item">
+        <div class="kontak-icon">📸</div>
+        <div class="kontak-text">
+          <strong>Instagram</strong>
+          <span>@solestore.id</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jam Operasional & Peta -->
+    <div>
+      <div class="kontak-card" style="margin-bottom: 1.5rem;">
+        <h3>Jam Operasional</h3>
+
+        <div class="spec-row">
+          <span class="spec-label">Senin – Jumat</span>
+          <span class="spec-val">08.00 – 20.00 WIB</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Sabtu</span>
+          <span class="spec-val">09.00 – 20.00 WIB</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Minggu</span>
+          <span class="spec-val">10.00 – 17.00 WIB</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Hari Libur Nasional</span>
+          <span class="spec-val">Tutup</span>
+        </div>
+      </div>
+
+      <div class="kontak-card">
+        <h3>Lokasi Toko</h3>
+        <div class="map-placeholder">🗺️</div>
+        <p style="color: var(--gray); font-size: 0.85rem; margin-top: 0.8rem;">Tersedia di Google Maps: "SoleStore Banda Aceh"</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

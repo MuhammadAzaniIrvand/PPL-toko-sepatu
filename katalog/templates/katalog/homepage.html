@@ -1,0 +1,69 @@
+{% extends 'katalog/base.html' %}
+
+{% block title %}SoleStore - Toko Sepatu Olahraga Terpercaya{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🔥 Koleksi Terbaru 2026</div>
+    <h1>Sepatu Olahraga untuk Setiap Langkahmu</h1>
+    <p>Temukan koleksi sepatu lari, training, dan lifestyle dari brand ternama dunia. Kualitas premium, harga terjangkau.</p>
+    <a href="{% url 'daftar_produk' %}" class="btn btn-primary">Lihat Semua Produk</a>
+    <a href="{% url 'kontak' %}" class="btn btn-outline">Hubungi Kami</a>
+  </div>
+</section>
+
+<div class="container">
+  <h2 class="section-title">Produk Pilihan</h2>
+  <p class="section-subtitle">Sepatu terpopuler yang banyak diminati pelanggan kami.</p>
+
+  <div class="product-grid">
+    {% for produk in featured %}
+    <a href="{% url 'detail_produk' produk.id %}" class="product-card">
+      <div class="card-img">
+        {{ produk.emoji }}
+        {% if produk.badge %}
+        <span class="card-badge">{{ produk.badge }}</span>
+        {% endif %}
+      </div>
+      <div class="card-body">
+        <div class="card-brand">{{ produk.merek }}</div>
+        <div class="card-name">{{ produk.nama }}</div>
+        <div class="card-price">Rp {{ produk.harga|floatformat:0 }}</div>
+        <span class="card-cat">{{ produk.kategori }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <div style="text-align:center; margin-top: 2.5rem;">
+    <a href="{% url 'daftar_produk' %}" class="btn btn-primary">Lihat Semua Produk →</a>
+  </div>
+
+  <!-- Info Section -->
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--light);">
+    <div style="text-align:center; padding: 1.5rem;">
+      <div style="font-size: 2rem; margin-bottom: 0.8rem;">🚚</div>
+      <strong>Gratis Ongkir</strong>
+      <p style="color: var(--gray); font-size: 0.9rem; margin-top: 0.3rem;">Untuk pembelian di atas Rp 500.000</p>
+    </div>
+    <div style="text-align:center; padding: 1.5rem;">
+      <div style="font-size: 2rem; margin-bottom: 0.8rem;">✅</div>
+      <strong>Produk Original</strong>
+      <p style="color: var(--gray); font-size: 0.9rem; margin-top: 0.3rem;">100% original dengan garansi resmi</p>
+    </div>
+    <div style="text-align:center; padding: 1.5rem;">
+      <div style="font-size: 2rem; margin-bottom: 0.8rem;">↩️</div>
+      <strong>Mudah Dikembalikan</strong>
+      <p style="color: var(--gray); font-size: 0.9rem; margin-top: 0.3rem;">Garansi retur 7 hari</p>
+    </div>
+    <div style="text-align:center; padding: 1.5rem;">
+      <div style="font-size: 2rem; margin-bottom: 0.8rem;">💬</div>
+      <strong>Support 24/7</strong>
+      <p style="color: var(--gray); font-size: 0.9rem; margin-top: 0.3rem;">Siap membantu kapan saja</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

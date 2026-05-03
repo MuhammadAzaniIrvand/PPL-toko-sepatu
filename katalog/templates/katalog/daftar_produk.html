@@ -1,0 +1,39 @@
+{% extends 'katalog/base.html' %}
+
+{% block title %}Daftar Produk - SoleStore{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1>Katalog Produk</h1>
+    <p>{{ produk_list|length }} produk tersedia</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="{% url 'homepage' %}">Beranda</a> / <span>Produk</span>
+  </div>
+
+  <div class="product-grid">
+    {% for produk in produk_list %}
+    <a href="{% url 'detail_produk' produk.id %}" class="product-card">
+      <div class="card-img">
+        {{ produk.emoji }}
+        {% if produk.badge %}
+        <span class="card-badge">{{ produk.badge }}</span>
+        {% endif %}
+      </div>
+      <div class="card-body">
+        <div class="card-brand">{{ produk.merek }}</div>
+        <div class="card-name">{{ produk.nama }}</div>
+        <div class="card-price">Rp {{ produk.harga|floatformat:0 }}</div>
+        <span class="card-cat">{{ produk.kategori }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
